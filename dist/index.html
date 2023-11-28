@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>todoList</title>
-    <script src="https://kit.fontawesome.com/a3b8734297.js" crossorigin="anonymous"></script>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
-<script defer src="test.js"></script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>todoList</title>
+  <script src="https://kit.fontawesome.com/a3b8734297.js" crossorigin="anonymous"></script>
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+  <script type="module"  defer src="script.js"></script>
+<script defer src="script.js"></script>
+</head>
 <body>
      <!-- body is grid -->
     <aside id="sidebar"> 
@@ -20,6 +22,7 @@
       </ul>
        <hr>
       <ul class="lists-container">
+        <!-- injecting inner html here -->
           <!-- single list  -->
         <li><i class="fa-solid fa-skull-crossbones"></i>
           <p>Secret projects</p>
@@ -40,28 +43,53 @@
           <h2>Sunday, November 26</h2>
           </header>
         <article class="cards-container">
+          <!-- injecting inner html here -->
           <!-- single card -->
-         <div class="card"> 
+          <div class="card"> 
 
-             <button class="btn"></button>
-             <div class="text-wrapper">
-               <h3>hello I am first task</h3>
-               <h4> I am some other little text</h4>
-              </div>
-         <div class="button-wrapper">
-           
-               <i class="fa-solid fa-trash"></i>
-              <i class="fa-regular fa-star  card-star"></i>
-         </div>
+            <button class="btn"></button>
+            <div class="text-wrapper">
+              <h3>hello I am first task</h3>
+              <h4> I am some other little text</h4>
+             </div>
+        <div class="button-wrapper">
+          
+          <p>Due: 20/20/20</p>
+              <i class="fa-solid fa-trash"></i>
+             <i class="fa-regular fa-star  card-star"></i>
+        </div>
 
-            </div>
-          <hr>
-          <div class="card">
-            <!-- the end of the item -->
+           </div>
+         <hr>
+         <!-- the end of the item -->
+          
           <div class="card new-card"> + Add a task</div>
           
         </article>  
     </main>
-    <script type="module"></script>
+    
+     <dialog data-list-dialog open>
+      <p> List's name: <input type="text" id="list-input"></p>
+      <form method="dialog">
+        <button class="list-btn">ok</button>
+      </form>
+
+    </dialog>
+
+    <dialog data-card-dialog open>
+<div class="dialog-inner">
+  
+      <p> Title: <input type="text" id="title-input"> </p>
+      <p> Description: <input type="text" id="description-input"></p>
+      <p> Due Date: <input type="datetime" id="datetime-input"></p>
+      <p> Important: <input type="checkbox" id="important-input"></p>
+     <form method="dialog">
+       <button class="card-btn">ok</button>
+     </form>
+</div>
+
+    </dialog>
+ 
+
 </body>
 </html>
