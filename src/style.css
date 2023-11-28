@@ -109,3 +109,27 @@ article h4 {
     font-size: 0.8rem;
 }
     
+/* Define the animation name and duration */
+.fa-trash:hover {
+    animation: open-trash 1s;
+  }
+  
+  /* Define the keyframes for the animation */
+  @keyframes open-trash {
+    /* Start with the icon closed and opaque */
+    0% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    /* At 50%, open the icon and make it transparent */
+    50% {
+      transform: scale(1.2) rotate(45deg);
+      opacity: 0;
+    }
+    /* At 100%, reset the icon to the original state */
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+  }
+  
