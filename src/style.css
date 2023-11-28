@@ -97,7 +97,7 @@ main > article {
     border: 2px solid black;
     
 
-}
+} /* will use active affect later with js */
 article .card-star:hover, .card-star:active {
     color: rgba(255, 255, 0, 0.693);
     transition: 0.3s;
