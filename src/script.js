@@ -7,7 +7,8 @@ import { injectingCardStructure,injectingListStructure,returnCardStructure,retur
 * storing lists inside an array
 * storing cards inside an array with each card as an object with an id and the description
 * let user push() new card
-* let user delete card with corresponding index of the button on the card
+* let user deletes card with corresponding index of the  del-button on the card
+* let user marks completing the card with the index of the complete-button on the card
 * ... 
 */
 

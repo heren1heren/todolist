@@ -79,16 +79,17 @@ main > article {
     flex-direction: column;
     gap:1rem;
 }
-
+.button-wrapper {
+    margin-left: auto;
+    display: flex;
+    gap: 0.5rem;
+}
 .card {
     height: 30px;
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
   align-items: center;
-}
-.card-star {
-    margin-left: auto;
 }
  article  .btn {
     vertical-align: middle;
