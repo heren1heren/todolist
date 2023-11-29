@@ -41,33 +41,34 @@
           <h1>My Home</h1>
           <h2>Sunday, November 26</h2>
           </header>
-        <article class="cards-container">
+        <article>
+        <div class="cards-container">
+          
           <!-- injecting inner html here -->
           <!-- single card -->
-          <div class="card"> 
-
+          <div class="card">
             <button class="btn"></button>
             <div class="text-wrapper">
               <h3>hello I am first task</h3>
-              <h4> I am some other little text</h4>
+              <h4 class="truncate"> I am some other little text</h4>
              </div>
-        <div class="button-wrapper">
+                  <div class="button-wrapper">
           
           <p>Due: 20/20/20</p>
               <i class="fa-solid fa-trash"></i>
              <i class="fa-regular fa-star  card-star"></i>
-        </div>
-
+                  </div>
            </div>
-         <hr>
+                   <hr>
+        </div>
          <!-- the end of the item -->
           
-          <div class="card new-card"> + Add a task</div>
-          
+         
+         <div class="card new-card"> + Add a task</div>
         </article>  
     </main>
     
-     <dialog data-list-dialog open>
+     <dialog data-list-dialog >
       <p> List's name: <input type="text" id="list-input"></p>
       <form method="dialog">
         <button class="list-btn">ok</button>
@@ -75,13 +76,13 @@
 
     </dialog>
 
-    <dialog data-card-dialog open>
+    <dialog data-card-dialog>
 <div class="dialog-inner">
   
       <p> Title: <input type="text" id="title-input"> </p>
       <p> Description: <input type="text" id="description-input"></p>
-      <p> Due Date: <input type="datetime" id="datetime-input"></p>
-      <p> Important: <input type="checkbox" id="important-input"></p>
+      <p> Due Date: <input type="date" id="dueDate-input"></p>
+      
      <form method="dialog">
        <button class="card-btn">ok</button>
      </form>

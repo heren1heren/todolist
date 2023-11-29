@@ -4,7 +4,7 @@ function injectingListStructure(listContainer, list) {
     return returnListStructure(list)
 }
 function injectingCardStructure(cardContainer,card) {
-    let sourceCard = cards.map((card) => {
+    let sourceCard = card.map((card) => {
         return returnCardStructure(card);    
   })     
   
@@ -23,10 +23,10 @@ function returnCardStructure(card) {
     <button class="btn"></button>
     <div class="text-wrapper">
       <h3>${card.title}</h3>
-      <h4> ${card.description} </h4>
+      <h4 class="truncate"> ${card.description} </h4>
      </div>
 <div class="button-wrapper">
-  CT
+  
   <p>Due: ${card.dueDate}</p>
       <i class="fa-solid fa-trash"></i>
      <i class="fa-regular fa-star  card-star"></i>

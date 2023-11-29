@@ -148,14 +148,25 @@ article h4 {
     font-size: 0.8rem;
 }
     
-article .new-card {
-    cursor: pointer;
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .fa-trash:hover {
     animation: open-trash 1s;
     cursor: pointer;
   }
+  .new-card {
+    cursor: pointer;
+    margin-bottom: auto;
+}
+/* .truncate {
+    overflow: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+} */
   
 
   /** dialog*/
@@ -171,7 +182,11 @@ article .new-card {
     top: 50%;
     transform: translate(-50%,-50%);
 }
-
+dialog {
+    border: none;
+    background-color: transparent;
+}
 dialog::backdrop {
-    background-color: black;
+    background-color: lightgray;
+    opacity: 0.5;
 }
