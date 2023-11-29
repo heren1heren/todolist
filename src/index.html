@@ -14,7 +14,7 @@
       <!-- aside has 'important' 'tasks'-->
       <header><i class="fa-solid fa-user"></i>User</header>
       
-      <ul> <!-- fixed icon and category-->
+      <ul class="fixed-list"> <!-- fixed icon and category-->
          <li><i class="fi fi-rs-home"></i><p>Home</p> <span>0</span></li>
          <li><i class="fa-solid fa-list-check"></i><p>To Do</p> <span>1</span></li>
          <li><i class="fa-regular fa-star blue-star"></i><p>Important</p> <span>2</span></li>
@@ -41,16 +41,16 @@
           <h1>My Home</h1>
           <h2>Sunday, November 26</h2>
           </header>
-        <article>
+        <article id="tasks-container">
         <div class="cards-container">
           
           <!-- injecting inner html here -->
           <!-- single card -->
-          <div class="card">
-            <button class="btn"></button>
+          <!-- <div class="card" data-id="1">
+            <button class="check-btn"></button>
             <div class="text-wrapper">
-              <h3>hello I am first task</h3>
-              <h4 class="truncate"> I am some other little text</h4>
+              <h3 class="mark-text">hello I am first task</h3>
+              <h4 class="truncate mark-text"> I am some other little text</h4>
              </div>
                   <div class="button-wrapper">
           
@@ -59,7 +59,7 @@
              <i class="fa-regular fa-star  card-star"></i>
                   </div>
            </div>
-                   <hr>
+                   <hr> -->
         </div>
          <!-- the end of the item -->
           
@@ -81,7 +81,7 @@
   
       <p> Title: <input type="text" id="title-input"> </p>
       <p> Description: <input type="text" id="description-input"></p>
-      <p> Due Date: <input type="date" id="dueDate-input"></p>
+      <p> Due Date: <input type="date" id="dueDate-input" required></p>
       
      <form method="dialog">
        <button class="card-btn">ok</button>

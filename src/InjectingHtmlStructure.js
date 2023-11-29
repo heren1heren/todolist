@@ -17,10 +17,10 @@ function returnListStructure() {
 `
 
 }
-function returnCardStructure(card) {
-    return `         <div class="card"> 
+function returnCardStructure(card) { //implement with id
+    return ` <div class="card" data-id="${card.id}"> 
 
-    <button class="btn"></button>
+    <button class="check-btn"></button>
     <div class="text-wrapper">
       <h3>${card.title}</h3>
       <h4 class="truncate"> ${card.description} </h4>

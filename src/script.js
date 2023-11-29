@@ -12,50 +12,61 @@ import {makeCard,checkStatusCardArray} from './card-component.js'
 */
 // let lists =  {
 //     home: cards,
-//     toDo: [],
 //     important: [],
 //     // new name: [],...
 // };
-let cards = [ // home cards' array
-    {
-    id: 1,
-    title: ' I am the first title',
-    description: 'I am the test card, I am beautiful',
-    dueDate: '20/20/20',
-    isImportant: true,
-    isDelete: false,
-}, {
-    id: 2,
-    title: 'I am the title',
-    description: 'I am strong, resilient, but still lazy',
-    isImportant: false,
-    isDelete: true,
-},
-];
+let cards = [] // home cards' array;
 
 
+let idCount = 1; 
 const addCardClicker = document.querySelector('.new-card');
 const cardContainer = document.querySelector('.cards-container');
 const CardSubmitBtn = document.querySelector('.card-btn');
 const listContainer = document.querySelector('.lists-container'); 
 CardSubmitBtn.addEventListener('click', () => {
-    makeCard(cards);
+    makeCard(cards,idCount);
+    idCount++;
     injectingCardStructure(cardContainer,cards)
 })
   
-function showModal() {
-    const dialog = document.querySelector('[data-card-dialog]')
-    dialog.showModal();
 
-}
 addCardClicker.addEventListener('click', () => {
     const dialog = document.querySelector('[data-card-dialog]')
     dialog.showModal();
 })
- const deleteCardBtn = document.querySelector();
- const markCardBtn = document.querySelector();
- const importantBtn = document.querySelector();
 
- // using delegation instead 
- 
-  checkStatusCardArray(cards)
+
+// delete logic is wrong now
+const article = document.querySelector('#tasks-container');
+article.addEventListener('click', (e) => {
+   const currentTarget = e.target;
+  
+
+   if (currentTarget.classList.contains('check-btn')) {
+       // toggle .show-btn for article
+       currentTarget.closest('.card').classList.toggle('show-check');
+
+       e.stopImmediatePropagation();
+    }
+    if (currentTarget.classList.contains('card-star')) {
+        console.log(currentTarget.closest('.card').dataset.id);
+
+        e.stopImmediatePropagation();
+
+    }
+    if (currentTarget.classList.contains('fa-trash')) {
+        const  currentId = currentTarget.closest('.card').dataset.id;
+          console.log(currentId);
+          console.log(cards);
+              cards[currentId-1].isDelete = true;
+        e.stopImmediatePropagation();
+        checkStatusCardArray(cards)
+        injectingCardStructure(cardContainer,cards)
+    }
+ })
+
+
+ let list = {
+    home: cards,
+    important: [],
+ }

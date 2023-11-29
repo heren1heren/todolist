@@ -45,7 +45,7 @@ aside > header {
 aside > header, aside > header > i {
     font-size: 2rem;
 }
-aside ul {article .btn::after {
+aside ul {article .check-btn::after {
     display: inline;
 }
 
@@ -116,7 +116,7 @@ main > article {
   gap: 0.5rem;
   align-items: center;
 }
- article  .btn {
+ article  .check-btn {
     cursor: pointer;
     vertical-align: middle;
     padding: 10px;
@@ -124,7 +124,7 @@ main > article {
     border: 2px solid black;
     position: relative;
 
-} article .btn::after {
+} article .check-btn::after {
     display:none;
     content: '\2713'; /* Unicode character for checkmark */
     font-size: 20px;
@@ -133,9 +133,6 @@ main > article {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-.show-check.btn {
-    display: inline;
 }
 /* will use active affect later with js */
 article .card-star:hover, .card-star:active {
@@ -190,3 +187,20 @@ dialog::backdrop {
     background-color: lightgray;
     opacity: 0.5;
 }
+
+
+/** toggle class for js*/
+.show-check .check-btn::after {
+    display: inline;
+}
+.show-check  {
+    text-decoration: line-through;
+    color: rgba(169, 169, 169, 0.5); }
+
+
+    /** list toggle*/
+
+    .selectedList {
+        font-weight: bolder;
+    }
+    
