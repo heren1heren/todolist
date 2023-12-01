@@ -1,20 +1,13 @@
 import stylesheet from './style.css'
 // import {injectingCardStructure,injectingH1Header,} from './InjectingHtmlStructure.js'
 // import { de } from 'date-fns/locale';
-// import
 import { injectingCardStructure,injectingListStructure} from './InjectingHtmlStructure';
 import {makeCard,checkStatusCardArray} from './card-component.js'
-// injectingCardStructure()
 
 /* our plans:
-* how to make marked effect and check for isDelete in each element inside an array
 * how to create a new array with name to distinguish with other new array give it a property name
 */
-// let lists =  {
-//     home: cards,
-//     important: [],
-//     // new name: [],...
-// };
+
 let cards = [] // home cards' array;
 
 
@@ -66,7 +59,8 @@ article.addEventListener('click', (e) => {
  })
 
 
- let list = {
-    home: cards,
-    important: [],
- }
+//  let list = {
+//     home: cards,
+//     important: [],
+    
+//  }
