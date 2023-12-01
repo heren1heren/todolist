@@ -21,44 +21,34 @@
       </ul>
        <hr>
       <ul class="lists-container">
-        <!-- injecting inner html here -->
-          <!-- single list  -->
-        <li><i class="fa-solid fa-skull-crossbones"></i>
-                    <p>Secret projects</p>
-          <span>55</span>
-        </li>
-        <!-- the end of the list  -->
-        <li><i class="fa-solid fa-plus"></i>
+        <div class="list-wrapper">
+          <!-- injecting inner html here -->
+            <!-- single list  -->
+          <li><i class="fa-solid fa-skull-crossbones"></i>
+                      <p>Secret projects</p>
+            <span>55</span>
+          </li>
+          <!-- the end of the list  -->
+
+        </div>
+
+        <li id="list-clicker"><i class="fa-solid fa-plus"></i>
            <p>New List</p>
           </li>
 
-        <!--inject new list-->
       </ul>
     </aside>
 
-    <main> <!-- inject js content in here -->
+    <main> 
+  
         <header>
-          <h1>My Home</h1>
-          <h2>Sunday, November 26</h2>
+          <h1 id="page-title">My Home</h1>
+          <h2 id="page-time">Sunday, November 26</h2>
           </header>
         <article id="tasks-container">
         <div class="cards-container">
-          <!-- injecting inner html here -->
-          <!-- single card -->
-          <!-- <div class="card" data-id="1">
-            <button class="check-btn"></button>
-            <div class="text-wrapper">
-              <h3 class="mark-text">hello I am first task</h3>
-              <h4 class="truncate mark-text"> I am some other little text</h4>
-             </div>
-                  <div class="button-wrapper">
+
           
-          <p>Due: 20/20/20</p>
-              <i class="fa-solid fa-trash"></i>
-             <i class="fa-regular fa-star  card-star"></i>
-                  </div>
-           </div>
-                   <hr> -->
         </div>
          <!-- the end of the item -->
           
@@ -68,21 +58,23 @@
     </main>
     
      <dialog data-list-dialog >
-      <p> List's name: <input type="text" id="list-input"></p>
-      <form method="dialog">
-        <button class="list-btn">ok</button>
-      </form>
+      <div class="dialog-inner">
+        <form id="list-form"method="dialog">
+          <p> List's name: <input type="text" id="list-input" required></p>
+          <button id="list-btn">ok</button>
+        </form>
+      </div>
 
     </dialog>
 
     <dialog data-card-dialog>
 <div class="dialog-inner">
   
-      <p> Title: <input type="text" id="title-input"> </p>
-      <p> Description: <input type="text" id="description-input"></p>
-      <p> Due Date: <input type="date" id="dueDate-input" required></p>
-      
-     <form method="dialog">
+  <form id="task-form"method="dialog">
+       <p> Title: <input type="text" id="title-input" required> </p>
+       <p> Description: <input type="text" id="description-input" required></p>
+       <p> Due Date: <input type="date" id="dueDate-input" required></p>
+       
        <button class="card-btn">ok</button>
      </form>
 </div>

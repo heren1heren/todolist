@@ -1,5 +1,5 @@
 export function makeCard(cardArray,idCount) {
-    console.log(cardArray);
+    // console.log(cardArray);
     const titleInput = document.querySelector('#title-input').value;
     const descriptionInput = document.querySelector('#description-input').value;
     const dueDate = document.querySelector('#dueDate-input').value;
@@ -39,4 +39,26 @@ export function checkStatusCardArray(cardArray) {
           // push card element to important array
         }
     })    
+}
+
+export function makeList(listObject,name) { // when click close button inside the dialog
+      const list = new List(name);
+         listObject.push(list);
+    
+}
+
+export class List {
+    constructor(name,tasksCount = 0) {
+       this.name = name;
+    //    this.delete = false;
+       this.array = [];
+       this.tasksCount = tasksCount;
+    }
+
+    isDelete() {
+       this.delete = true;
+    }
+    deleteChild(childId) { // alternative way
+        this.array.splice(childId,1)
+    }
 }

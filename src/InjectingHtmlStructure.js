@@ -1,21 +1,25 @@
 
-function injectingListStructure(listContainer, list) {
+function injectingListStructure(listContainer, lists) {
+    let source = lists.map((list) => {
+      return returnListStructure(list)
+    })
+    return listContainer.innerHTML = source.join('');
+}
 
-    return returnListStructure(list)
-}
-function injectingCardStructure(cardContainer,card) {
-    let sourceCard = card.map((card) => {
-        return returnCardStructure(card);    
-  })     
-  
-  return  cardContainer.innerHTML = sourceCard.join('');
-}
-function returnListStructure() {
+function returnListStructure(list) {
     return `        <li><i class="fa-solid fa-skull-crossbones"></i>
-    <p>${list.description}</p>
-    <span>${list.quantity} </span>
+    <p>${list.name}</p>
+    <span>${list.tasksCount} </span>
 `
 
+}
+
+function injectingCardStructure(cardContainer,card) {
+  let sourceCard = card.map((card) => {
+      return returnCardStructure(card);    
+})     
+
+return  cardContainer.innerHTML = sourceCard.join('');
 }
 function returnCardStructure(card) { //implement with id
     return ` <div class="card" data-id="${card.id}"> 

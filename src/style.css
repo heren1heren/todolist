@@ -200,7 +200,8 @@ dialog::backdrop {
 
     /** list toggle*/
 
-    .selectedList {
+ .selected-list {
+        background-color: lightslategray;
         font-weight: bolder;
     }
     
