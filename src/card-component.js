@@ -62,3 +62,25 @@ export class List {
         this.array.splice(childId,1)
     }
 }
+export function cardClickHandler(currentTarget,e) {
+    if (currentTarget.classList.contains('check-btn')) {
+        currentTarget.closest('.card').classList.toggle('show-check');
+        e.stopImmediatePropagation();
+     }
+     if (currentTarget.classList.contains('card-star')) {
+         const currentId = currentTarget.closest('.card').dataset.id;
+         cards[currentId].isImportant = true;
+         e.stopImmediatePropagation();
+ 
+     }
+     if (currentTarget.classList.contains('fa-trash')) {
+         const  currentId = currentTarget.closest('.card').dataset.id -1;        
+ 
+               cards[currentId].isDelete = true; //?
+               checkStatusCardArray(cards)
+               idCount--;
+         e.stopImmediatePropagation();
+         
+     }
+ 
+}

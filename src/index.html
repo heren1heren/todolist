@@ -14,7 +14,7 @@
       <!-- aside has 'important' 'tasks'-->
       <header><i class="fa-solid fa-user"></i>User</header>
       
-      <ul class="fixed-list"> <!-- fixed icon and category-->
+      <ul id="fixed-list"> <!-- fixed icon and category-->
          <li><i class="fi fi-rs-home"></i><p>Home</p> <span>0</span></li>
          <li><i class="fa-solid fa-list-check"></i><p>To Do</p> <span>1</span></li>
          <li><i class="fa-regular fa-star blue-star"></i><p>Important</p> <span>2</span></li>
@@ -22,13 +22,9 @@
        <hr>
       <ul class="lists-container">
         <div class="list-wrapper">
-          <!-- injecting inner html here -->
-            <!-- single list  -->
-          <li><i class="fa-solid fa-skull-crossbones"></i>
-                      <p>Secret projects</p>
-            <span>55</span>
+      
           </li>
-          <!-- the end of the list  -->
+         
 
         </div>
 
@@ -39,11 +35,15 @@
       </ul>
     </aside>
 
-    <main> 
+    <main data-list-display-container> 
   
         <header>
-          <h1 id="page-title">My Home</h1>
-          <h2 id="page-time">Sunday, November 26</h2>
+          <div class="left-header">
+            <h1 data-list-title>My Home</h1>
+            <h2 id="page-time">Sunday, November 26</h2>
+          </div>
+
+          <div class="right-header"> <span id="tasks-count" data-list-count></span> </div>
           </header>
         <article id="tasks-container">
         <div class="cards-container">
@@ -55,6 +55,7 @@
          
          <div class="card new-card"> + Add a task</div>
         </article>  
+        <button data-delete-list-button>delete current list</button>
     </main>
     
      <dialog data-list-dialog >
@@ -82,5 +83,24 @@
     </dialog>
  
 
+    <template id="task-template">
+
+      <div class="card"> 
+
+        <button class="check-btn"></button>
+        <div class="text-wrapper">
+          <h3></h3>
+          <h4></h4>
+         </div>
+    <div class="button-wrapper">
+      
+      <p></p>
+          <i class="fa-solid fa-trash"></i>
+         <i class="fa-regular fa-star  card-star"></i>
+    </div>
+    
+       </div>
+     <hr>
+    </template>
 </body>
 </html>

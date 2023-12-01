@@ -14,8 +14,8 @@ function returnListStructure(list) {
 
 }
 
-function injectingCardStructure(cardContainer,card) {
-  let sourceCard = card.map((card) => {
+function injectingCardStructure(cardContainer,cards) {
+  let sourceCard = cards.map((card) => {
       return returnCardStructure(card);    
 })     
 
