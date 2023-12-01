@@ -5,6 +5,7 @@ export function makeCard(cardArray,idCount) {
     const dueDate = document.querySelector('#dueDate-input').value;
     const card = new Card(idCount,titleInput,descriptionInput,dueDate);
     cardArray.push(card);
+    card.isDelete = false;
 }    
 
 export class Card {
