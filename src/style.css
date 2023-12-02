@@ -207,3 +207,8 @@ dialog::backdrop {
         font-weight: bolder;
     }
     
+
+/** task toggle*/
+.task-description-field {
+  display: none;
+} 

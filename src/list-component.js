@@ -1,6 +1,6 @@
 import {format} from 'date-fns'
 import {makeCard,checkStatusCardArray, makeList, cardClickHandler} from './card-component.js'
-import { injectingCardStructure,injectingListStructure} from './InjectingHtmlStructure';
+import  {save,renderList,renderTaskCount,renderTasks,Task,makeTaskIn}from './renderFunction.js'
 const LOCAL_STORAGE_LIST_KEY = 'task.lists'
 const LOCAL_STORAGE_SELECTED_LIST_KEY = 'task.selectedListId'
 
@@ -59,24 +59,8 @@ listSubmitBtn.addEventListener('click', (e) => {
 function createList(name) { //create new list with id, name, and its arr
     return {id: Date.now().toString(), name: name, tasks: []}
 }
-function createTask(name,dueDate,) {
-    return {id: Date.now().toString(), name: name, dueDate: dueDate}
-}
 
-// add event for aside to add selectList once
-// const sidebar = document.querySelector('#sidebar');
-//  const pageTitle = document.querySelector('#page-title')
-//  sidebar.addEventListener('click', (e) => {
-//      const currentTarget = e.target;
-//      const textContent = currentTarget.closest('P').textContent;
-//      const currentTargetList = currentTarget.closest('LI');
-     
-//      pageTitle.textContent = textContent;
-//      selectCurrentList(currentTargetList);
-     
-     
-//     })
-    
+
 //     const pageTime = document.querySelector('#page-time');
 //     function updateDateTime(element) {
 //         const currentDate = new Date();
@@ -89,83 +73,60 @@ function createTask(name,dueDate,) {
 //     }
 //     updateDateTime(pageTime);
     
-
-
+const CardSubmitBtn = document.querySelector('.card-btn');
+const taskForm = document.querySelector('#task-form');
+CardSubmitBtn.addEventListener('click', (e) => { 
     
-    
-    // function selectCurrentList(currentTargetList) {
-        
-        
-    // if(currentTargetList.tagName == 'LI' )   { 
-
-    //     const allLists = document.querySelectorAll('li');
-    //     allLists.forEach((list) => {
-    //         list.classList.remove('selected-list');
-    //         })
-    //       currentTargetList.classList.add('selected-list')   
-    //     }
-    // }
-    
-    function render() {
-                         
-        clearElement(listsContainer);
-        renderList();
-
-
-        const selectedList = lists.find(list => list.id === selectedListId)
-        if (selectedListId == null) {
-            listDisplayContainer.style.display = 'none';
-        } else {
-            listDisplayContainer.style.display = '';
-            listTitleElement.innerText = selectedList.name;
-            renderTaskCount(selectedList) ;
-            clearElement(tasksContainer) // clear element is flexable
-            renderTasks(selectedList);
-        }
-
-      
-    }    
-    
-    function renderTasks() {
-       selectedList.tasks.forEach(task => {
-       const taskElement = document.importNode(taskTemplate.textContent, true);
-
-       })
-    }
-function renderList() {
-    lists.forEach(list => {
-        const listElement = document.createElement('li');
-        listElement.classList.add("list-name");
-        listElement.dataset.listId = list.id
-        listElement.innerText = list.name;
-    if (list.id === selectedListId) {
-     listElement.classList.add('active-list')
-    }
-    listsContainer.appendChild(listElement);
-})    
+    if(!taskForm.checkValidity()) {
+        e.preventDefault();
+    } else {
+    const selectedList = lists.find(list => list.id === selectedListId)
+    makeTaskIn(selectedList.tasks);
 
 }
-function renderTaskCount(selectedList) {
-    const incompleteTasksCount = selectedList.tasks.filter(task => {
-        !task.complete
-    }).length
-    const taskString = incompleteTasksCount === 1 ? "task" : "tasks"
-    listCountElement.innerText = `${incompleteTasksCount} ${taskString} remaining`
-} 
-function saveAndRender() {
+  renderTasks();
+})
+
+
+   
+
+function render() {
+                         
+    clearElement(listsContainer);
+    renderList();
+
+
+    const selectedList = lists.find(list => list.id === selectedListId)
+    if (selectedListId == null) {
+        listDisplayContainer.style.display = 'none';
+    } else {
+        listDisplayContainer.style.display = '';
+        listTitleElement.innerText = selectedList.name;
+        renderTaskCount(selectedList) ;
+        clearElement(tasksContainer) 
+        renderTasks(selectedList);
+    }
+
+  
+}   
+ function saveAndRender() {
     save();
     render();
 }
-function save() {
-    localStorage.setItem(LOCAL_STORAGE_LIST_KEY,JSON.stringify(lists))
-    localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_KEY, selectedListId)
-}
-function clearElement(element) {
-   while (element.firstChild) {
-    element.removeChild(element.firstChild);
-   }
-}
-render();
+
+   
+     
+    
+
+
+
+
+
+
+
+
+
+
 const ListCLicker = document.querySelector('#list-clicker');
 const listModal = document.querySelector('[data-list-dialog]')
 ListCLicker.addEventListener('click', () => {
