@@ -21,6 +21,26 @@ export default function renderTaskCount(selectedList) {
     listCountElement.innerText = `${incompleteTasksCount} ${taskString} remaining`
 } 
 // tasks
+function taskStructure(task) {
+    return ` <div class="card"> 
+
+    <button class="check-btn"></button>
+    <div class="text-wrapper">
+      <h3> ${task.name}</h3>
+      <h4>${task.description}</h4>
+     </div>
+<div class="button-wrapper">
+  
+  <p> ${task.dueDate}</p>
+      <i class="fa-solid fa-trash"></i>
+     <i class="fa-regular fa-star  card-star"></i>
+</div>
+
+<div class="task-description-field"> ${task.description}</div>
+   </div>
+ <hr>`
+}
+
 function renderTasks(selectedList) {
     selectedList.tasks.forEach(task => { // access current array task
     
