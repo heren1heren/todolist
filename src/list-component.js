@@ -14,7 +14,7 @@ const deleteListButton = document.querySelector('[data-delete-list-button')
 
 const listDisplayContainer = document.querySelector('[data-list-display-container');
 const listTitleElement = document.querySelector('[data-list-title]');
-const listCountElement = document.querySelector('[data-list-count');
+const listCountElement = document.querySelector('[data-list-count]');
 const tasksContainer = document.querySelector('.cards-container');
 
 deleteListButton.addEventListener('click', (e) => {

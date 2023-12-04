@@ -18,35 +18,18 @@ export function createList(name) { //create new list with id, name, and its arr
 
 export  function renderTaskCount(selectedList,listCountElement) {
     const incompleteTasksCount = selectedList.tasks.filter(task => {
-        !task.complete
+        !task.isMarked
     }).length
     const taskString = incompleteTasksCount === 1 ? "task" : "tasks"
     listCountElement.innerText = `${incompleteTasksCount} ${taskString} remaining`
+    console.log(incompleteTasksCount);
 } 
 // tasks
- function taskStructure(task) {
-    return ` <div class="card"> 
-
-    <button class="check-btn"></button>
-    <div class="text-wrapper">
-      <h3>${task.name}</h3>
-      <h4>${task.description}</h4>
-     </div>
-<div class="button-wrapper">
-  
-  <p>Due: ${task.dueDate}</p>
-      <i class="fa-solid fa-trash"></i>
-     <i id="${task.id} class="fa-regular fa-star  card-star"></i>
-</div>
-
-<div class="task-description-field"> ${task.description}</div>
-   </div>
- <hr>`
-}
+ 
 
 export function renderTasks(selectedList,tasksContainer) {
-    console.log(selectedList);
-    selectedList.tasks.forEach(task => { // access current array task
+    
+    selectedList.tasks.forEach(task => { 
         let source = taskStructure(task);
         tasksContainer.innerHTML += source;
 
@@ -58,7 +41,9 @@ export function renderTasks(selectedList,tasksContainer) {
       this.dueDate = dueDate;
       this.name = name;
       this.description = description;
-      this.delete = false; // 
+      this.isDeleted = false; // 
+      this.isMarked = false;
+      this.isImportant = false;
     }
  }
  export function createTaskIn(taskArray) {
@@ -79,4 +64,23 @@ export function clearElement(element) {
      element.removeChild(element.firstChild);
     }
  }
- 
+
+ function taskStructure(task) {
+    return ` <div id=" ${task.id}"class="card"> 
+
+    <button class="check-btn"></button>
+    <div class="text-wrapper">
+      <h3>${task.name}</h3>
+      <h4>${task.description}</h4>
+     </div>
+<div class="button-wrapper">
+  
+  <p>Due: ${task.dueDate}</p>
+      <i id="${task.id}"  class="fa-solid fa-trash"></i>
+     <i  id="${task.id}" class="fa-regular fa-star  card-star"></i>
+</div>
+
+<div class="task-description-field"> ${task.description}</div>
+   </div>
+ <hr>`
+}
