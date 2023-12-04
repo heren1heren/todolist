@@ -1,6 +1,6 @@
-//list
-export default function renderList() {
-    
+
+export function renderList(lists,selectedListId,listsContainer) {
+
     lists.forEach(list => {
         const listElement = document.createElement('li');
         listElement.classList.add("list-name");
@@ -12,8 +12,11 @@ export default function renderList() {
     listsContainer.appendChild(listElement);
 })    
 }
+export function createList(name) { //create new list with id, name, and its arr
+    return {id: Date.now().toString(), name: name, tasks: []}
+}
 
-export default function renderTaskCount(selectedList) {
+export  function renderTaskCount(selectedList,listCountElement) {
     const incompleteTasksCount = selectedList.tasks.filter(task => {
         !task.complete
     }).length
@@ -21,19 +24,19 @@ export default function renderTaskCount(selectedList) {
     listCountElement.innerText = `${incompleteTasksCount} ${taskString} remaining`
 } 
 // tasks
-function taskStructure(task) {
+ function taskStructure(task) {
     return ` <div class="card"> 
 
     <button class="check-btn"></button>
     <div class="text-wrapper">
-      <h3> ${task.name}</h3>
+      <h3>${task.name}</h3>
       <h4>${task.description}</h4>
      </div>
 <div class="button-wrapper">
   
-  <p> ${task.dueDate}</p>
+  <p>Due: ${task.dueDate}</p>
       <i class="fa-solid fa-trash"></i>
-     <i class="fa-regular fa-star  card-star"></i>
+     <i id="${task.id} class="fa-regular fa-star  card-star"></i>
 </div>
 
 <div class="task-description-field"> ${task.description}</div>
@@ -41,9 +44,11 @@ function taskStructure(task) {
  <hr>`
 }
 
-function renderTasks(selectedList) {
+export function renderTasks(selectedList,tasksContainer) {
+    console.log(selectedList);
     selectedList.tasks.forEach(task => { // access current array task
-    
+        let source = taskStructure(task);
+        tasksContainer.innerHTML += source;
 
     })
  }
@@ -56,7 +61,7 @@ function renderTasks(selectedList) {
       this.delete = false; // 
     }
  }
- export function makeTaskIn(taskArray) {
+ export function createTaskIn(taskArray) {
 
     const titleInput = document.querySelector('#title-input').value;
     const descriptionInput = document.querySelector('#description-input').value;
@@ -68,10 +73,6 @@ function renderTasks(selectedList) {
 
 
  // other low level function
-export function save() {
-    localStorage.setItem(LOCAL_STORAGE_LIST_KEY,JSON.stringify(lists))
-    localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_KEY, selectedListId)
-}
 
 export function clearElement(element) {
     while (element.firstChild) {
